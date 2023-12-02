@@ -7,6 +7,7 @@ import { __dirname } from "./utils.js";
 import viewsRouter from "./routes/views.routes.js";
 import productsRouter from "./routes/products.routes.js";
 import chatRouter from "../src/routes/chat.routes.js";
+import cartsRouter from "../src/routes/cart.routes.js";
 import { MessageManager } from "./dao/message.manager.mdb.js";
 
 const PORT = 8080;
@@ -23,11 +24,14 @@ app.set("view engine", "handlebars");
 
 app.use("/", viewsRouter);
 app.use("/api/products", productsRouter);
+app.use("/api/carts", cartsRouter);
 
 app.use("/static", express.static(`${__dirname}/public`));
 
 let messages = [];
 app.use("/chat", chatRouter);
+
+app.use("/carts", cartsRouter);
 
 try {
   await mongoose.connect(MONGOOSE_URL);

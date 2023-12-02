@@ -6,21 +6,21 @@ const received_messages = document.getElementById("received_messages");
 const users = [
   {
     id: 1,
-    firstName: "Carlos",
-    lastName: "Perren",
-    correoDelUsuario: "cperren@43",
+    firstName: "Gaston",
+    lastName: "Maldonado",
+    correoDelUsuario: "gmaldonado@11",
   },
   {
     id: 2,
-    firstName: "Juan",
-    lastName: "Perez",
-    correoDelUsuario: "jperez@43",
+    firstName: "Diego",
+    lastName: "Valsagna",
+    correoDelUsuario: "dvalsagna@11",
   },
   {
     id: 3,
-    firstName: "Carolina",
-    lastName: "Ferrero",
-    correoDelUsuario: "cferrero@43",
+    firstName: "David",
+    lastName: "Hochstrasser",
+    correoDelUsuario: "dhochstrasser@43",
   },
 ];
 
