@@ -9,6 +9,15 @@ router.get("/", async (req, res) => {
   res.status(200).send({ status: "ok", data: products });
 });
 
+router.get("/paginated", async (req, res) => {
+  try {
+    const products = await manager.getProductsPaginated();
+    res.status(200).send({ status: "OK", data: products });
+  } catch (err) {
+    res.status(500).send({ status: "ERR", data: err.message });
+  }
+});
+
 router.post("/", uploader.single("thumbnail"), async (req, res) => {
   if (!req.file)
     return res

@@ -61,10 +61,3 @@ try {
 } catch (err) {
   console.log(`No se puede conectar con bbdd (${err.message})`);
 }
-
-//CHAT
-// const CHAT_PORT = 3001;
-
-// const httpServer = app.listen(CHAT_PORT, () => {
-//   console.log(`Servicio de chat activo en puerto ${CHAT_PORT}`);
-// });

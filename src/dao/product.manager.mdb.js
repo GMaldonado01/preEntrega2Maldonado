@@ -21,6 +21,16 @@ export class ProductManager {
     }
   }
 
+  async getProductsPaginated() {
+    try {
+      return await productModel.paginate(
+        { category: "Con baño de chocolate" },
+        { offset: 0, limit: 9, lean: true }
+      );
+    } catch (err) {
+      return err.message;
+    }
+  }
   async getProduct(id) {
     try {
       const product = await productModel.findById(id);
