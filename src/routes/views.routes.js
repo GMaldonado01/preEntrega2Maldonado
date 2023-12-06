@@ -27,11 +27,37 @@ router.get("/products/paginated", async (req, res) => {
   );
   data.pages = [];
   for (let i = 1; i <= data.totalPages; i++) data.pages.push(i);
-
   res.render("products", {
     title: "Listado de PRODUCTOS",
     data: data,
   });
 });
-
+router.put("/api/carts/:cid/products/:pid", async (req, res) => {
+  const productDelete = await managerCart.getCartAndDeleteProduct();
+  res.render("products", {
+    title: "Producto eliminado",
+    data: productDelete,
+  });
+});
+router.get("api/carts/:cid", async (req, res) => {
+  const carts = await managerCart.getCartById();
+  res.render("products", {
+    title: "CART",
+    carts,
+  });
+});
+router.put("api/carts/:cid/empty", async (req, res) => {
+  const cart = await managerCart.deleteProductsInCart();
+  res.render("products", {
+    title: "CART",
+    cart,
+  });
+});
+router.get("/:cid", async (req, res) => {
+  const carts = await managerCart.objectsInCart();
+  res.render("products", {
+    title: "listado de productos",
+    carts,
+  });
+});
 export default router;
