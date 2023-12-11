@@ -54,7 +54,7 @@ router.put("api/carts/:cid/empty", async (req, res) => {
   });
 });
 router.get("/:cid", async (req, res) => {
-  const carts = await managerCart.objectsInCart();
+  const carts = await managerCart.objectsInCart;
   res.render("products", {
     title: "listado de productos",
     carts,
